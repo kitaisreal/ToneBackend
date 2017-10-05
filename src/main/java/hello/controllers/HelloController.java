@@ -1,17 +1,15 @@
 package hello.controllers;
 
 
-import hello.models.Song;
-import hello.models.Stat;
 import hello.services.impl.SongServiceImpl;
 import hello.services.impl.StatServiceImpl;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 //TODO CONVERT NORMALIZE RETURN
 //TODO RECOMMENDATION
 @RestController
@@ -23,28 +21,29 @@ public class HelloController {
         this.songService = songService;
         this.statService=statService;
     }
-
-    @RequestMapping("/hello")
-    public String index() {
-        songService.createSong(new Song("asd","reer",2));
-        return "ADDED";
-    }
-    @RequestMapping("/getSongs")
-    public String getSongs(){
-        List<Song> songs = songService.getAllSongs();
-        for (Song s:songs){
-            System.out.println(s.getArtist_name());
+    @RequestMapping("/getNextSong")
+    public String getNextSong(@RequestBody String body){
+        //TODO SPRING
+        JSONParser jsonParser = new JSONParser();
+        try {
+            JSONArray jsonArray = (JSONArray) jsonParser.parse(body);
         }
-        return "DONE";
-    }
-    @RequestMapping("/getStats")
-    public ResponseEntity getStats(){
-        List<Stat> stats = statService.getAllStats();
-        for (Stat s : stats){
-            System.out.println(s.getMean() + " " + s.getAmplitude());
+        catch (ParseException e){
+            e.printStackTrace();
         }
-        ResponseEntity<List<Stat>> response = new ResponseEntity<>(stats, HttpStatus.OK);
-        return response;
-    }
+        return "OK";
+    };
+    @RequestMapping("/getRecommendations")
+    public String getRecommendations(@RequestBody String body){
+        //TODO SPRING
+        JSONParser jsonParser = new JSONParser();
+        try {
+            JSONArray jsonArray = (JSONArray) jsonParser.parse(body);
+        }
+        catch (ParseException e){
+            e.printStackTrace();
+        }
+        return "OK";
+    };
 
 }
