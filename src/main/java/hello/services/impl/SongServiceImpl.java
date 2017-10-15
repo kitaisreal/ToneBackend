@@ -3,7 +3,7 @@ package hello.services.impl;
 
 import hello.models.Song;
 import hello.repository.SongRepository;
-import hello.services.SongService;
+import hello.services.ISongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +13,7 @@ import java.util.List;
 @Component("SongService")
 @Transactional
 
-public class SongServiceImpl implements SongService {
+public class SongServiceImpl implements ISongService {
     private final SongRepository songRepository;
     @Autowired
     public SongServiceImpl(SongRepository songRepository){
