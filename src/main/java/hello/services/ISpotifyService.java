@@ -1,7 +1,7 @@
 package hello.services;
 
 
-import hello.appmodels.AppArtist;
+import hello.entities.AppArtist;
 import org.springframework.stereotype.Service;
 
 @Service

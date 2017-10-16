@@ -1,6 +1,6 @@
 package hello.services;
 
-import hello.models.Song;
+import hello.entities.Song;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

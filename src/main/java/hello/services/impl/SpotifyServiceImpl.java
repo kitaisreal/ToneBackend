@@ -12,7 +12,7 @@ import com.wrapper.spotify.models.Artist;
 import com.wrapper.spotify.models.ClientCredentials;
 import com.wrapper.spotify.models.Image;
 import com.wrapper.spotify.models.Page;
-import hello.appmodels.AppArtist;
+import hello.entities.AppArtist;
 import hello.services.ISpotifyService;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,7 +62,7 @@ public class SpotifyServiceImpl implements ISpotifyService{
             System.out.println("ARTIST LIST SIZE " + artistList.size());
             Artist artist = artistList.get(0);
             String genre = artist.getGenres().get(artist.getGenres().size()-1);
-            return new AppArtist(artist.getName(), artist.getImages().get(0).getUrl(), genre);
+            return new AppArtist((long) artist.getName().hashCode(),pArtist, artist.getImages().get(0).getUrl(), genre);
         } catch (Exception ex){
             ex.printStackTrace();
             System.out.println("Could not get artist " + pArtist);

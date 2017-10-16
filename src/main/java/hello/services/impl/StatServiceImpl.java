@@ -1,8 +1,8 @@
 package hello.services.impl;
 
-import hello.models.Stat;
-import hello.repository.StatRepository;
-import hello.services.StatService;
+import hello.entities.Stat;
+import hello.repository.IStatRepository;
+import hello.services.IStatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,10 +13,10 @@ import java.util.List;
 @Component("StatService")
 @Transactional
 
-public class StatServiceImpl implements StatService {
-    private final StatRepository statRepository;
+public class StatServiceImpl implements IStatService {
+    private final IStatRepository statRepository;
     @Autowired
-    public StatServiceImpl(StatRepository statRepository){
+    public StatServiceImpl(IStatRepository statRepository){
         this.statRepository = statRepository;
     }
 

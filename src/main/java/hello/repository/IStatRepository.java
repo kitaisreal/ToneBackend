@@ -1,10 +1,10 @@
 package hello.repository;
 
 
-import hello.models.Stat;
+import hello.entities.Stat;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StatRepository extends CrudRepository<Stat,Long> {
+public interface IStatRepository extends CrudRepository<Stat,Long> {
 }

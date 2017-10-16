@@ -1,8 +1,8 @@
 package hello.services.impl;
 
 
-import hello.models.Song;
-import hello.repository.SongRepository;
+import hello.entities.Song;
+import hello.repository.ISongRepository;
 import hello.services.ISongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,9 +14,9 @@ import java.util.List;
 @Transactional
 
 public class SongServiceImpl implements ISongService {
-    private final SongRepository songRepository;
+    private final ISongRepository songRepository;
     @Autowired
-    public SongServiceImpl(SongRepository songRepository){
+    public SongServiceImpl(ISongRepository songRepository){
         this.songRepository = songRepository;
     }
 
